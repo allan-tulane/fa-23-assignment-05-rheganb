@@ -12,7 +12,7 @@ children (except possibly the rightmost leaf). What is the maximum
 depth of a $d$-ary heap?
 
 
-**put in answers.md**
+Maximum depth of a d-ary heap is log base d (# of elements in heap).
 
 .  
 .  
@@ -30,8 +30,8 @@ heap property. What is the work done by
 work differs for each operation. 
 
 
-**put in answers.md**
-
+The work done for delete-min is O(maximum depth of a d-ary heap).
+The work done for insert is the same as well.
 .  
 .  
 .  
@@ -44,7 +44,7 @@ $|V|$, $|E|$, and $d$ and will account for the `delete-min` and
 `insert` operations separately.
 
 
-**put in answers.md**
+The new bound on the work is O[V*log base d(V) + E*log base d(V) ]
 
 .  
 .  
@@ -59,7 +59,7 @@ that we have a moderate number of edges, that is  $|E| = |V|^{1+\epsilon}$ for $
 < 1$. What value of $d$ yields an overall running time of $O(|E|)$?
 
 
-**put in answers.md**
+The value of d that yields an overall running time of O(|E|) is when d = # of edges/# of nodes.
 
 .  
 .  
@@ -86,8 +86,7 @@ a) Consider the following graph with 3 vertices.
 
 Compute $\mathit{APSP}(i, j, k)$ for all $i, j, k$.
 
-
-**put in answers.md**
+APSP(i,j,k) are matrices with edge weights of 0, 2, 3, 5, 8, and infinity (if there is no such edge)
 
 .  
 .  
@@ -100,7 +99,7 @@ $\mathit{APS}(i, j, 2)$? Can you write $\mathit{APS}(i, j, 2)$ in
 terms of $\mathit{APS}(i, j, 0)$ and $\mathit{APS}(i, j, 1)$ only?
 
 
-**put in answers.md**
+APSP(i,j,2) is the minimum of APSP(i,j,1) and APSP where k=1 and the sum of both i and j = 2. The shortest path from i to j using only vertices 0,1,2 will either be the same as the shortest path using only vertices 0,1 or can be given by going from i to 2 and 2 to j.
 
 .  
 .  
@@ -115,7 +114,7 @@ j, k-1)$, or some other path from $i$ to $j$ that has length $k$. Generalize you
 $\mathit{APSP}(i, j, k).$
 
 
-**put in answers.md**
+
 
 .  
 .  
@@ -130,8 +129,8 @@ ever compute each subproblem from scratch once. How many distinct
 subproblems will be computed from scratch, and what is the resulting
 work of this dynamic programming algorithm?
 
+The number of distinct subproblems if we do top-down memorization is v^3, where v is the number of verticies. The work of this algorithm is O(v^3) because each subproblem can be solved in constant time.
 
-**put in answers.md**
 
 .  
 .  
@@ -144,7 +143,7 @@ algorithm. In what cases is our dynamic programming algorithm
 preferable?
 
 
-**put in answers.md**
+Our algorithm is preferred if our graph is dense.
 
 .  
 .  
@@ -158,7 +157,7 @@ preferable?
 a) Consider a variation of the MST problem that instead asks for a tree that minimizes the maximum weight of any edge in the spanning tree. Let's call this the minimum maximum edge tree (MMET). Is a solution to MST guaranteed to be a solution to MMET? Why or why not?
 
 
-**put in answers.md**
+No. The MST tries to minimize the total weight of the tree using sum of edge weights. The MMET however, tries to minimize the maximum weight of any edge in the tree. An optimal solution to an MST could be a tree with a small number of edges which have high weights, but this will not minimize the maximum edge weight.
 
 .  
 .  
@@ -168,7 +167,7 @@ a) Consider a variation of the MST problem that instead asks for a tree that min
 b) Suppose that the optimal solution to MST is impossible to use for some reason. Describe an algorithm to instead find the next best tree (pseudo-code or English is fine). That is, return the tree with the next lowest weight. 
 
 
-**put in answers.md**
+First, sort edges and find the optimal solution with Kruskal's algorithm. Then iterating through each edge in the MST, find an MST without including the current edge. Keep dong this until all edges in MST have been gone through, and the edge that gives the minimum weight difference is the tree with the next lowest weight.
 
 .  
 .  
@@ -178,7 +177,7 @@ b) Suppose that the optimal solution to MST is impossible to use for some reason
 c) What is the work of your algorithm?
 
 
-**put in answers.md**
+Given edge E, the work is O(E*log E)
 
 .  
 .  
